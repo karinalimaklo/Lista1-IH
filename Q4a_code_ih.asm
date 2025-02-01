@@ -42,7 +42,7 @@ add x6, x6, x30
 #Acaba o programa
 halt
 
-#Valores iniciais que usaremos
+#Valores iniciais que usaremos de exemplo
 divisor: .word 5
 resto: .word 0
 quociente: .word 0
