@@ -1,0 +1,6 @@
+*Para descobrir o tempo de execução máximo consideramos o pior caso que é 99999/1.
+*Com a plataforma executando a 100 Hz, baseada no processador RISC-V cycle-accurate.
+Teremos:
+Eventos de clock = 557
+Tempo de CPU = 557/100
+Tempo de CPU = 5.57
