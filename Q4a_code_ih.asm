@@ -4,8 +4,8 @@ lw x6, resto
 lw x7, quociente
 lw x28, contador
 lw x30, dividendo
-#Desloca 5 bits o divisor
-slli x5, x5, 5
+#Desloca 17 bits o divisor
+slli x5, x5, 17
 
 inicio:
 	#Subtrai o dividendo pelo divisor
@@ -46,5 +46,5 @@ halt
 divisor: .word 5
 resto: .word 0
 quociente: .word 0
-contador: .word 6
+contador: .word 18
 dividendo: .word 21
