@@ -43,8 +43,8 @@ add x6, x6, x30
 halt
 
 #Valores iniciais que usaremos de exemplo
-divisor: .word 5
+divisor: .word 1
 resto: .word 0
 quociente: .word 0
 contador: .word 18
-dividendo: .word 21
+dividendo: .word 99999
