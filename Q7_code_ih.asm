@@ -1,3 +1,4 @@
+#Carrega bytes da memoria para os registradores
 iniciar:
 	lb x10, 1025(x0)
 	lb x11, 1025(x0)
@@ -6,13 +7,19 @@ iniciar:
 	lw x14, zeroo
 	lw x15, umm
 
+#Comparamos cada um dos numeros que
+#escrevemos no teclado com zero ou um
+ 
 n0:
+#caso um dos numeros seja 1, pulamos para
+#a proxima funcao 
 	bne x10, x14, n1
 	bne x11, x14, n1
 	bne x12, x14, n1
 	bne x13, x14, n1
 	beq x0, x0, mostra0
 
+#as demais funcoes verificam de forma parecida
 n1:
 	bne x10, x14, n2
 	bne x11, x14, n2
@@ -79,6 +86,8 @@ n9:
 nZerar:
 	beq x0, x0, mostraZerar
 
+#Carregam valores da memoria nesses registradores
+#Esses valores possuem relacao com os segmentos do display 
 mostra0:
 	lb x30, 456(x0)
 	lb x31, 466(x0)
@@ -156,16 +165,18 @@ mostraZerar:
 	sb x31, 1027(x0)
 	halt
 
-zeroo: .word 48
-umm: .word 49
-zero: .byte 63
-um: .byte 6
-dois: .byte 27
-tres: .byte 15
-quatro: .byte 38
-cinco: .byte 45
-seis: .byte 61
-sete: .byte 7
-nove: .byte 47
+zeroo: .word 48 #0 em ascii
+umm: .word 49 #1 em ascii
+
+#mapeamento dos bytes
+zero: .byte 63 #segmentos a, b, c, d, e, f 
+um: .byte 6 #b, c 
+dois: .byte 27 #a, d, e, g 
+tres: .byte 15 #a, b, c, d 
+quatro: .byte 38 #b, c, f, g 
+cinco: .byte 45 #a, c, d, f, g 
+seis: .byte 61 #a, c, d, e, f, g 
+sete: .byte 7 #a, b, c 
+nove: .byte 47 #a, b, c, d, f 
 H: .byte 1
 L: .byte 0
