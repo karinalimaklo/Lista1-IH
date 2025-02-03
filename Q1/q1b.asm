@@ -10,42 +10,51 @@ lw x18,menos
 lw x20,zero
 sw x10,x
 
-#A>=15
+#A>=5
+
 A:
 lb x11,1025(x0)
-#se for negativo
+#Se for negativo
 beq x11,x18,limparA
 lb x11,1025(x0) # sX
 lb x11,1025(x0) # sxX
 lb x11,1025(x0) # sxxX
 lb x11,1025(x0) # sxxxX
-blt x15,x11,limparA
+#Se for menos que 5
+blt x11,x15,limparA
+lb x11,1025(x0)
 
 #B<=65
+
 B:
 lb x12,1025(x0)
-#se for negativo, ja pode passar pro C
+#Se for negativo, ja pode passar pro C
 beq x18,x12,okB
 lb x12,1025(x0) # sX
-bge x12,x0,limparB
+blt x20,x12,limparB 
 lb x12,1025(x0) #sxX
-bge x12,x20,limparB
+blt x20,x12,limparB
 lb x12,1025(x0) #sxxX
+#Se for maior que 6, ja limpa
 blt x16,x12,limparB
+#Igual a 6, compara
 beq x12,x16,igualB
 lb x12,1025(x0)
 lb x12,1025(x0)
 
-#C > 5
+#C>15
+
 C: 
 lb x13,1025(x0)
+#Se for negativo, ja limpa
 beq x13,x18,limparCF
 lb x13,1025(x0) # sX
 bne x13,x20,sucesso
 lb x13,1025(x0) # sxX
 bne x13,x20,sucesso
 lb x13,1025(x0) #sxxX
-bge x13,x14,sucesso
+blt x14,x13,sucesso
+#Se for igual a 1, compara
 beq x13,x14,igualC
 
 limparA:
@@ -77,15 +86,17 @@ beq x12,x17,C
 
 igualB:
 lb x12,1025(x0) #sxxxX
-#tem que ser menor que 5
-bge x12,x15,limparB
+#Tem que ser menor que 5
+blt x15,x12,limparB 
 lb x12,1025(x0)
+#Volta pra funcao C
 beq x12,x17,C
 
 igualC:
 lb x13,1025(x0)
-#tem que ser menor que 5
-blt x13,x15,sucesso
+#Tem que ser menor que 5
+blt x15,x13,sucesso
+beq x0,x0, limparCF
 
 #Variaveis
 a: .word 0x30
@@ -99,6 +110,4 @@ cinco: .word 0x35
 seis: .word 0x36
 espaco: .word 0x20
 menos: .word 0x2d
-comp: .word 0x30
 zero: .word 0x30
-
