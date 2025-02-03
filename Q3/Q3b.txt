@@ -1,0 +1,11 @@
+Q3 
+b)
+- Plataforma executando a 10000Hz
+RISC-V cycle-accurate
+Para medir o tempo de execução máximo, escolhemos o pior caso, que é a mutiplicação de 255 x 257, que tem como resultado o maior inteiro sem sinal de 16 bits (65.535) 
+Teremos cerca de:
+Eventos de clock = 945
+Tempo de CPU = 945/1000
+Tempo de CPU = 0.945
+
+
