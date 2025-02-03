@@ -1,3 +1,7 @@
+#Entrada de cada numero(incluindo o ultimo) no formato:
+#(Sinal)(Numero de 4 digitos)(Espaco)
+#Exemplo: +1234 +1234 +1234 
+
 lw x11,a
 lw x12,b
 lw x13,c
