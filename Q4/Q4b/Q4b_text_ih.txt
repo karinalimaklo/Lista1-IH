@@ -1,0 +1,8 @@
+*Para descobrir o tempo de execução máximo consideramos o pior caso que é 65535/1.
+(Visto que foi informado pelo discord para utilizar o maior dividendo possível sendo de 16 bits(65535))
+(A letra A já havia sido feito utilizando o pior caso como sendo 99999/1, quando foi avisado).
+*Com a plataforma executando a 1000 Hz, baseada no processador RISC-V cycle-accurate.
+Teremos, por volta de:
+Eventos de clock = 1275
+Tempo de CPU = 1275/1000
+Tempo de CPU = 1.275
