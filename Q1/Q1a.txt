@@ -13,12 +13,14 @@ Exemplos que nao entram no if
  a=-1 b=63 c=17
 
 i. Plataforma com o processador RISC-V dual-cycle (considerando caso em que entre no if)
-Clock cycles = 24
-CPU time = 0.24
+Ciclos de clock= 26
+Tempo de CPU  = 0.26
+
 
 ii. Plataforma do processador RISC-V cycle-accurate (considerando caso em que entre no if)
-Clock cycles = 52
-CPU time = 0.52
-CPI = Cycles/Instructions 
-CPI = 52/13
-CPI = 4
+Ciclos de clock= 54
+Tempo de CPU = 0.54
+
+CPI = N° de Ciclos/N° de Instruções
+CPI = 54/13
+CPI = 4.15
