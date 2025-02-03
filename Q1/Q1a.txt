@@ -1,4 +1,18 @@
-a) i. Plataforma com o processador RISC-V dual-cycle (considerando caso em que entre no if)
+a) Exemplos que entram no if
+ a=5 b=65 c=16
+ a=999 b=-999 c=999
+ a=13 b=-1 c=19
+ a=10 b=65 c=424
+ a=242 b=0 c=16
+
+Exemplos que nao entram no if
+ a=4 b=65 c=16
+ a=999 b=66 c=999
+ a=999 b=-999 c=15
+ a=305 b=0 c=13
+ a=-1 b=63 c=17
+
+i. Plataforma com o processador RISC-V dual-cycle (considerando caso em que entre no if)
 Clock cycles = 24
 CPU time = 0.24
 
