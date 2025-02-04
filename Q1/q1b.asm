@@ -2,6 +2,8 @@
 #(Sinal)(Numero de 4 digitos)(Espaco)
 #Exemplo: +1234 +1234 +1234 
 
+#Caso tenha colocado Cycle Accurate, favor colocar mais ciclos de clock
+
 lw x11,a
 lw x12,b
 lw x13,c
@@ -18,13 +20,17 @@ sw x10,x
 
 A:
 lb x11,1025(x0)
-#Se for negativo
+#Se for negativo, ja limpa tudo
 beq x11,x18,limparA
+#Vai lendo e se for != 0, ja parte pro B
 lb x11,1025(x0) # sX
+bne x11,x20,okA
 lb x11,1025(x0) # sxX
+bne x11,x20,okA
 lb x11,1025(x0) # sxxX
+bne x11,x20,okA
 lb x11,1025(x0) # sxxxX
-#Se for menos que 5
+#Se for menos que 5, falhou
 blt x11,x15,limparA
 lb x11,1025(x0)
 
@@ -83,6 +89,11 @@ sw x10,x
 sb x10,1024(x0)
 halt
 
+okA:
+lb x11,1025(x0)
+bne x11,x17,okA
+beq x11,x17,B
+
 okB:
 lb x12,1025(x0)
 bne x12,x17,okB
@@ -115,3 +126,4 @@ seis: .word 0x36
 espaco: .word 0x20
 menos: .word 0x2d
 zero: .word 0x30
+
