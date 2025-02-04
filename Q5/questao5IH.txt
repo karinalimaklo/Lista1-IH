@@ -1,0 +1,60 @@
+Calcule o tempo de execução e CPI considerando um RISC-V cycle-accurate.
+
+	Tempo de execução:
+		59 pulsos de clock pra conclusão uma vez
+		frequência de 100Hz
+		Logo, 1 segundo -> 100 pulsos
+		      x segundos -> 59 pulsos
+		x = 0,59 segundos
+	Tempo de execução = 0,59s
+
+	CPI = NumClocks / QtdInstruções
+		NumClocks = 59
+		QtdInstruções = 16
+		Logo, 59/16 = 3,6875
+	CPI = 3,6875
+
+
+
+Qual a taxa de leitura da sua solução?
+
+	input de 50 graus e frequência de 100Hz
+		1° leitura: pulso 25
+		2° leitura: pulso 64 (25 + 35)
+		3° leitura: pulso 99 (64 + 35)
+		4° leitura: pulso 134 (99 + 35)
+		5° leitura: pulso 169 (134 + 35)
+		6° leitura: pulso 204 (169 + 35); le novamente a cada 35 pulsos do clock
+	período de leitura:
+		1 segundo -> 100 pulsos
+		x segundos -> 21 pulsos
+		x = 0,21 segundos para cada leitura
+	frequência de leitura:
+		21 pulsos -> 1 leitura
+		100 pulsos -> x leituras
+		x = 4,7; 4 leituras por segundo
+
+		
+
+Se a taxa de leitura tiver que ter um speed-up de 5x, qual deverá ser a fequência do clock?
+
+	0,21 taxa -> 100Hz
+	1,05 taxa -> x Hz
+	x = 500Hz; Logo, a frequência deverá ser de 500Hz
+
+
+
+É possível de implementar com a sua implementação?
+
+	Sim, desde que o hardware suporte a mudança.
+
+
+
+Pinagem:
+	Sensor de temperatura: A0
+	Amarelo Esquerda: 8
+	Verde Esquerda: 9
+	Verde Direita: 10
+	Amarelo Direita: 11
+	Vermelho Direita: 12
+	Vermelho Esquerda: 13
